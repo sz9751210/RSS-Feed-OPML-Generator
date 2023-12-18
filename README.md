@@ -57,8 +57,8 @@ The script would parse this file, check each URL, and generate an OPML file with
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome. Feel free to check [issues page](https://github.com/[username]/rss-feed-opml-generator/issues) for open issues or to open a new issue.
+Contributions are welcome! If you find a bug or have an idea for improvement, please open an issue or submit a pull request on the GitHub repository.
 
 ## 📝 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+This project is licensed under the [MIT License](LICENSE).
