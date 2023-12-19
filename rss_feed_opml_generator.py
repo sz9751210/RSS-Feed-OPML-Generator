@@ -40,7 +40,10 @@ def check_url_exists(url):
         )
         logging.info(f"Checking URL: {url} - Status Code: {response.status_code}")
         # print(f"Checking URL: {url} - Status Code: {response.status_code}")
-        return response.status_code == 200
+        # 檢查響應碼和內容類型
+        is_status_ok = response.status_code == 200
+        is_content_xml = 'xml' in response.headers.get('Content-Type', '')
+        return is_status_ok and is_content_xml
     except requests.RequestException as e:
         logging.error(f"Error checking URL: {url} - Error: {e}")
         # print(f"Error checking URL: {url} - Error: {e}")
@@ -51,6 +54,7 @@ def find_rss_link(base_url):
     rss_variants = [
         "/rss",
         "/atom.xml",
+        "/feed/",
         "/feed",
         "/rss.xml",
         "/index.xml",
@@ -60,6 +64,7 @@ def find_rss_link(base_url):
         "/?feed=atom",
         "/feed/rss2",
         "/feed/atom",
+        "/feed/atom/",
         "/feed/rss",
     ]
     for variant in rss_variants:
