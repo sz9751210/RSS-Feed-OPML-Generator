@@ -34,7 +34,7 @@ def parse_markdown(markdown_text):
 def check_url_exists(url):
     try:
         headers = {'User-Agent': 'Mozilla/5.0'}
-        response = requests.get(url, headers=headers, timeout=10, verify=False)
+        response = requests.get(url, headers=headers, timeout=10, verify=False, allow_redirects=False)
         logging.info(f"Checking URL: {url} - Status Code: {response.status_code}")
         # print(f"Checking URL: {url} - Status Code: {response.status_code}")
         return response.status_code == 200
